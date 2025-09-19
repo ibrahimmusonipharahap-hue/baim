@@ -1,0 +1,109 @@
+/* Reset beberapa margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Gaya umum untuk body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Gaya untuk header */
+header {
+    background-color: #0056A1;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Gaya untuk konten berita utama */
+.news {
+    background-color: white;
+    padding: 40px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.news p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Gaya untuk tabel statistik */
+.statistics {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statistics table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.statistics th, .statistics td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.statistics th {
+    background-color: #0056A1;
+    color: white;
+}
+
+.statistics tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Gaya untuk footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1em;
+}
