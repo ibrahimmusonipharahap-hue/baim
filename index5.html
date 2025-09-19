@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kapan Berenang</title>
+  <style>
+    :root{
+      --bg: #0f172a; /* dark navy */
+      --card: #0b1220;
+      --text: #FFD700; /* gold */
+      --accent: #B8860B; /* dark gold */
+      --glass: rgba(255,255,255,0.04);
+      --radius: 18px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: radial-gradient(circle at 10% 10%, rgba(184,134,11,0.06), transparent 10%),
+                  linear-gradient(180deg, #071028 0%, #071422 100%),
+                  var(--bg);
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:40px 48px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      text-align:center;
+      max-width:780px;
+      width:100%;
+    }
+    h1{
+      margin:0 0 12px 0;
+      font-size:48px;
+      line-height:1.05;
+      letter-spacing:0.4px;
+      color:var(--accent);
+      text-shadow: 0 6px 24px rgba(184,134,11,0.12), 0 1px 0 rgba(255,255,255,0.02);
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color: #f8e7b0;
+      font-size:18px;
+    }
+    .controls{display:flex;gap:12px;justify-content:center;margin-top:18px;}
+    button{
+      background:transparent;
+      border:1px solid rgba(255,215,0,0.12);
+      color:var(--text);
+      padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;
+      backdrop-filter: blur(4px);
+    }
+    .time{
+      margin-top:18px;color:#d9c08a;font-weight:700;
+    }
+    @media (max-width:520px){
+      h1{font-size:36px}
+      .card{padding:28px}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1 id="headline">kapan berenang</h1>
+    <p class="lead">Situs sederhana menampilkan teks "kapan berenang". Tekan tombol untuk melihat waktu lokal sekarang.</p>
+    <div class="controls">
+      <button id="showTime">Tampilkan Waktu</button>
+      <button id="toggleCase">Ubah Huruf</button>
+    </div>
+    <div class="time" id="timeDisplay" aria-live="polite"></div>
+  </main>
+
+  <script>
+    const btn = document.getElementById('showTime');
+    const toggle = document.getElementById('toggleCase');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const headline = document.getElementById('headline');
+
+    btn.addEventListener('click', ()=>{
+      const now = new Date();
+      const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const timeStr = now.toLocaleTimeString('id-ID');
+      timeDisplay.textContent = `Waktu sekarang: ${timeStr}`;
+    });
+
+    toggle.addEventListener('click', ()=>{
+      const txt = headline.textContent;
+      // toggle between lowercase and uppercase
+      headline.textContent = (txt === txt.toLowerCase()) ? txt.toUpperCase() : txt.toLowerCase();
+    });
+  </script>
+</body>
+</html>
