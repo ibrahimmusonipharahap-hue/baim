@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kapan Berenang</title>
+  <style>
+    :root{
+      --dark-gold: #B8860B;
+      --bg-top: #0b2a3a;
+      --bg-bottom: #063c52;
+      --glass: rgba(255,255,255,0.06);
+      --accent: rgba(255,255,255,0.08);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0}
+    body{
+      background: linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+      color: #fff;
+      display:flex;align-items:center;justify-content:center;
+      -webkit-font-smoothing:antialiased;
+    }
+    .card{
+      width:min(880px,92vw);
+      padding:3.5rem 2rem;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(2,8,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      text-align:center;
+      backdrop-filter: blur(6px);
+      position:relative;
+      overflow:hidden;
+    }
+    h1{
+      font-size: clamp(32px, 6.5vw, 72px);
+      letter-spacing:4px;
+      margin:0 0 0.4rem 0;
+      color:var(--dark-gold);
+      text-shadow: 0 6px 18px rgba(8,6,0,0.55), 0 1px 0 rgba(255,255,255,0.02);
+    }
+    p.lead{
+      margin:0 0 1.6rem 0;
+      font-size:18px;
+      color: #e6f7ff;
+      opacity:0.95;
+    }
+    .btn{
+      display:inline-block;
+      padding:0.7rem 1.2rem;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      cursor:pointer;
+      font-weight:600;
+      color:var(--dark-gold);
+      box-shadow: 0 6px 18px rgba(3,12,20,0.45);
+    }
+    .water{position:absolute;left:0;right:0;bottom:-10%;height:65%;background:radial-gradient(circle at 50% 20%, rgba(255,255,255,0.02), transparent 20%), linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.12)); transform:rotate(-2deg); opacity:0.6}
+    .note{margin-top:1rem;color:#d6f0ff;font-size:14px;opacity:0.9}
+    footer{margin-top:1.6rem;font-size:13px;color:#bfe6ff;opacity:0.85}
+    @media (max-width:480px){
+      .card{padding:2rem}
+      h1{letter-spacing:2px}
+    }
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <h1>KAPAN BERENANG</h1>
+    <p class="lead">Sebuah halaman sederhana — teks utama: <strong>kapan berenang</strong>.</p>
+    <button class="btn" id="showTime">Tampilkan waktu sekarang</button>
+    <div class="note" id="timeOutput" aria-live="polite"></div>
+    <div class="water" aria-hidden="true"></div>
+    <footer>Ingin fitur lain (jadwal, pengingat, atau tema berbeda)? Tinggal bilang.</footer>
+  </div>
+
+  <script>
+    const btn = document.getElementById('showTime');
+    const out = document.getElementById('timeOutput');
+    btn.addEventListener('click', ()=>{
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2,'0');
+      const mm = String(now.getMinutes()).padStart(2,'0');
+      const ss = String(now.getSeconds()).padStart(2,'0');
+      out.textContent = `Waktu sekarang: ${hh}:${mm}:${ss}`;
+    });
+  </script>
+</body>
+</html>
