@@ -3,120 +3,136 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: #fffef2;
+    background: #fdfdfd;
     color: #333;
     line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Header */
+/* Hero */
 header {
-    background: #ff7f50;
+    background: url('https://source.unsplash.com/1600x600/?fresh-fruit,juice') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 5rem 1rem;
+    position: relative;
+}
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+header .hero {
+    position: relative;
+    z-index: 1;
 }
 header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 header p {
-    margin-top: 5px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
-header nav {
-    margin-top: 1rem;
-}
-header nav a {
-    margin: 0 12px;
+header .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #ff7f50;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1rem;
+    border-radius: 30px;
+    transition: 0.3s;
 }
-header nav a:hover {
-    text-decoration: underline;
+header .btn:hover {
+    background: #ff5722;
 }
 
 /* Menu */
 #menu {
-    padding: 2rem;
+    padding: 3rem 1rem;
     text-align: center;
 }
 #menu h2 {
-    color: #ff7f50;
-    margin-bottom: 15px;
+    color: #ff5722;
+    margin-bottom: 20px;
 }
 .menu-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
-    margin-top: 20px;
+    gap: 25px;
 }
 .menu-item {
     background: #fff;
-    border: 2px solid #ff7f50;
-    border-radius: 10px;
-    width: 200px;
+    border-radius: 12px;
+    width: 250px;
     padding: 1rem;
-    transition: transform 0.2s;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-}
-.menu-item:hover {
-    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+    opacity: 0;
+    transform: translateY(40px);
 }
 .menu-item img {
     width: 100%;
-    border-radius: 10px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 12px;
 }
 .menu-item h3 {
-    margin: 10px 0;
+    margin: 12px 0;
     color: #ff7f50;
 }
 .menu-item p {
     font-weight: bold;
 }
 
+/* Animasi fade-in */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
 /* Section umum */
 section {
-    padding: 2rem;
+    padding: 2.5rem 1rem;
     text-align: center;
+    transition: background 0.3s, color 0.3s;
 }
 section h2 {
     margin-bottom: 15px;
     color: #ff7f50;
 }
 
-/* Form Pemesanan */
+/* Form */
 .order-form {
     max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin: auto;
     text-align: left;
     background: #fff;
     padding: 20px;
     border-radius: 12px;
-    border: 2px solid #ff7f50;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background 0.3s, color 0.3s;
 }
 .order-form label {
     font-weight: bold;
-    margin-top: 5px;
-    color: #444;
 }
 .order-form input,
-.order-form select,
-.order-form textarea {
+.order-form select {
+    width: 100%;
     padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    width: 100%;
-    font-size: 1rem;
 }
 .order-form button {
     background: #ff7f50;
@@ -124,14 +140,19 @@ section h2 {
     border: none;
     padding: 12px;
     font-size: 16px;
-    font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: 0.2s;
+    width: 100%;
+    transition: 0.3s;
 }
 .order-form button:hover {
-    background: #e8693a;
+    background: #ff5722;
+}
+#total {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #333;
 }
 
 /* Kontak */
@@ -146,6 +167,4 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    margin-top: 20px;
-    font-size: 0.9rem;
-}
+    font-size
